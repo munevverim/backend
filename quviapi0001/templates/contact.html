@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="/static/contactv000012.css">
+    <link rel="canonical" href="https://quvi.ai" />
+</head>
+
+<body>
+
+<div class="first-page">
+  <header class="header">
+    <a class="logo" href="/">
+      <img
+        src="/static/images/background/quick_vision_studios.png"
+        alt="q logo" />
+    </a>
+  </header>
+
+  <div class="title">
+    <div class="title-contactus">
+      <h2>Contact Us</h2>
+    </div>
+    <div class="title-contactus2">
+      <p>At QUICK VISION STUDIOS, we are always happy to hear from you. You can reach us via:</p>
+    </div>
+  </div>
+  
+  <div class="contact-middle">
+    <div class="contact-right">
+      <div class="layer active" style="background-image: url('/static/images/free/planet.png');"></div>
+      <div class="layer hidden" style="background-image: url('/static/images/free/robot.png');"></div>
+      <div class="layer hidden" style="background-image: url('/static/images/free/robots.png');"></div>
+      <div class="layer hidden" style="background-image: url('/static/images/free/castle.png');"></div>
+
+      <div class="contacticons">
+        <div class="icon-text">
+          <a href="https://x.com/quviai">
+          <img src="/static/images/icons/x.png" alt="x icon"/></a>
+        </div>
+        
+        <div class="icon-text">
+          <a href="https://tr.pinterest.com/quickvisionai/">
+          <img src="/static/images/icons/pinterest.png" alt="x icon"/></a>
+        </div>
+        
+        <div class="icon-text">
+          <a href="https://www.instagram.com/quviai/">
+          <img src="/static/images/icons/instagram.png" alt="x icon"/></a>
+        </div>
+        
+        <div class="icon-text">
+          <a href="https://www.linkedin.com/in/quvi-ai-0683932a5/">
+          <img src="/static/images/icons/linkedin.png" alt="x icon"/></a>
+        </div>
+        
+        <div class="icon-text">
+          <a href="https://www.youtube.com/@quviai">
+          <img src="/static/images/icons/youtube.png" alt="x icon"/></a>
+        </div> 
+
+      </div> 
+    </div>
+
+    <div class="contact-left">
+      <a href="mailto:quickvisionai@gmail.com">quickvisionai@gmail.com</a>
+      <p>Your feedback and suggestions are invaluable to us as we continually strive to improve our services. Write to us, and let's achieve better together!</p>
+    </div>
+  </div>
+
+  <footer class="altheader">
+    <a class="footer-text"
+      >Quick Vision Studios 2024. All Rights Reserved.
+    </a>
+    <div class="right">
+        <a href="{% url 'pricing' %}">Pricing</a>
+        <a href="{% url 'term-of-use' %}">Terms of Use</a>
+        <a href="{% url 'privacy-policy' %}">Privacy Policy</a>
+        <a href="{% url 'about-us' %}">About Us</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </div>
+  </footer>
+</div>
+
+
+<script>
+const layers = document.querySelectorAll('.contact-right .layer');
+  let currentIndex = 0;
+  
+  function changeBackgroundImage() {
+      const activeLayer = layers[currentIndex];
+      const nextIndex = (currentIndex + 1) % layers.length;
+      const nextLayer = layers[nextIndex];
+  
+      activeLayer.classList.remove('active');
+      activeLayer.classList.add('hidden');
+  
+      nextLayer.classList.remove('hidden');
+      nextLayer.classList.add('active');
+  
+      currentIndex = nextIndex;
+  }
+  
+  layers.forEach(layer => {
+      layer.addEventListener('click', changeBackgroundImage);
+  });
+  
+  setInterval(changeBackgroundImage, 8000); 
+</script>
+
+
+
+
+</body>
+</html>

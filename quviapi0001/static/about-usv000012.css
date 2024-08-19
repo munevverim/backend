@@ -1,0 +1,323 @@
+@font-face {
+    font-family: 'Italiana';
+    src: url("/static/font/Italiana-Regular.ttf");
+    font-family: 'AbrilFatface';
+    src: url("/static/font/AbrilFatface-Regular.ttf");
+    }
+    
+    * {
+    margin: 0;
+    padding: 0;
+    }
+              
+    body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    overflow: hidden;
+    }
+    
+    .header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 7vh;
+    border-bottom: 1px solid #4d4c4f;
+    justify-content: space-between;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    
+    }
+      
+    .logo {
+    position: relative;
+    height: 90%;
+    width: 12%;
+    object-fit: contain;
+    cursor: pointer;
+    margin-left: 1%;
+    padding: 0;
+    }
+      
+    .logo img {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    }
+    
+    .altheader {
+    position: fixed; 
+    bottom: 0; 
+    width: 100vw; 
+    height: 7vh;
+    background-color: #000000; 
+    padding: 0; 
+    margin: 0;
+    text-align: center; 
+    text-decoration: none;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    }
+      
+    .right {
+    height: 90%;
+    width: 30%;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+    }
+      
+    .right a {
+    width: auto;
+    height: 100%;
+    position: relative;
+    color: #888785;
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    right: 4%;
+    }
+      
+    .right a:hover {
+    color: #ffffff;
+    }
+      
+    .footer-text {
+    color: #888785;
+    height: 90%;
+    width: 30%;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+    padding: 0;
+    left: 1%;
+    }
+      
+    .center {
+    height: 90%;
+    width: 30%;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    object-fit: cover;
+    box-sizing: border-box; 
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    }
+      
+    .center img {
+    text-align: center;
+    display: center;
+    height: 40px;
+    cursor: pointer;
+    }
+    
+    .first-page{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-image: url(/static/images/background/background.png);
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .about-us-container{
+        height: 80%;
+        width: 100%;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:space-evenly;
+    }
+    
+    .who-are-we {
+        margin: 0;
+        padding: 10px;
+        height: 15%;
+        width: 95%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: start;
+        background-color: transparent;
+        border-radius: 1rem;
+        background: linear-gradient(90deg, rgba(110, 13, 208, 0.1), rgba(9, 159, 255, 0.1), rgba(0, 255, 255,0.1), rgba(255, 87, 45, 0.1), rgba(255, 102, 0, 0.1));
+        font-size: clamp(10px, 1vw, 20px);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    
+    .w-text1 {
+        background: linear-gradient(90deg,  rgba(102, 102, 102), rgba(180, 180, 180));
+        -webkit-background-clip: text; 
+        background-clip: text; 
+        color: transparent; 
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    
+    .w-text2 {    
+        color:#888785;
+        font-size: 1rem;
+    }
+    
+    .our-mission {
+        margin: 0;
+        padding: 10px;
+        height: 15%;
+        width: 95%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: start;
+        background-color: transparent;
+        border-radius: 1rem;
+        background: linear-gradient(90deg, rgba(110, 13, 208, 0.1), rgba(9, 159, 255, 0.1), rgba(0, 255, 255,0.1), rgba(255, 87, 45, 0.1), rgba(255, 102, 0, 0.1));
+        font-size: clamp(10px, 1vw, 20px);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .o-text1 {       
+        background: linear-gradient(90deg,  rgba(102, 102, 102), rgba(180, 180, 180));
+        -webkit-background-clip: text; 
+        background-clip: text; 
+        color: transparent; 
+        font-size: 1.5rem;
+        font-weight: bold; 
+    }
+    
+    .o-text2 {    
+        color:#888785;
+        font-size: 1rem;
+    }
+    
+    .our-vision {
+        margin: 0;
+        padding: 10px;
+        height: 15%;
+        width: 95%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: start;
+        background-color: transparent;
+        border-radius: 1rem;
+        background: linear-gradient(90deg, rgba(110, 13, 208, 0.1), rgba(9, 159, 255, 0.1), rgba(0, 255, 255,0.1), rgba(255, 87, 45, 0.1), rgba(255, 102, 0, 0.1));
+        font-size: clamp(10px, 1vw, 20px);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .v-text1 {       
+        background: linear-gradient(90deg,  rgba(102, 102, 102), rgba(180, 180, 180));
+        -webkit-background-clip: text; 
+        background-clip: text; 
+        color: transparent; 
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    .v-text2 {    
+        color:#888785;
+        font-size: 1rem;
+    }
+    
+    .at-quick {
+        margin: 0;
+        padding: 10px;
+        height: 15%;
+        width: 95%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: start;
+        background-color: transparent;
+        border-radius: 1rem;
+        background: linear-gradient(90deg, rgba(110, 13, 208, 0.1), rgba(9, 159, 255, 0.1), rgba(0, 255, 255,0.1), rgba(255, 87, 45, 0.1), rgba(255, 102, 0, 0.1));
+        font-size: clamp(10px, 1vw, 20px);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .a-text1 {    
+        background: linear-gradient(90deg,  rgba(102, 102, 102), rgba(180, 180, 180));
+        -webkit-background-clip: text; 
+        background-clip: text; 
+        color: transparent; 
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    .a-text2{
+        color:#888785;
+        font-size: 1rem;
+    }
+    
+    .our-team {
+        margin: 0;
+        padding: 10px;
+        height: 15%;
+        width: 95%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: start;
+        background-color: transparent;
+        border-radius: 1rem;
+        background: linear-gradient(90deg, rgba(110, 13, 208, 0.1), rgba(9, 159, 255, 0.1), rgba(0, 255, 255,0.1), rgba(255, 87, 45, 0.1), rgba(255, 102, 0, 0.1));
+        font-size: clamp(10px, 1vw, 20px);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .t-text1 {
+        background: linear-gradient(90deg,  rgba(102, 102, 102), rgba(180, 180, 180));
+        -webkit-background-clip: text; 
+        background-clip: text; 
+        color: transparent; 
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    .t-text2 {
+        color:#888785;
+        font-size: 1rem;
+    }

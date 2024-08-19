@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
+    <title>Projects</title>
+    <link rel="stylesheet" type="text/css" href="/static/my-projectsv000012.css">
+    <script type="text/javascript" src="/static/js/projectv000012.js"></script>
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="canonical" href="https://quvi.ai" />
+</head>
+
+<body>
+  <header class="header">
+    <a class="logo" href="/">
+      <img
+        src="/static/images/background/quick_vision_studios.png"
+        alt="q logo" />
+    </a>
+    <div class="user-profile">
+      <a href="{% url 'pricing' %}" style="display: flex; justify-content: flex-start; align-items: center; text-decoration: none; text-align: center; width: 80%;">
+        <img src="/static/images/QUVI COIN.png" alt="Coin" width="30%" height="50%" /> 
+        <i id="user-credit" style="color: white; font-size: 1.2rem; font-family: 'oswald'; font-style: normal; height: 100%; width: 20%; font-weight: 700;">{{user.credit}}</i></a>
+      <a id="profile" href="#" style="justify-content: center; align-content: center; align-items: center; height: 100%; width: 30%; padding: 0; text-decoration: none;">
+        <div style="color: white; display: flex; font-family: 'LTSuperior-r'; font-size: x-large; background-color: rgb(66, 20, 20); height: 90%; width: 100%; border-radius: 50%; text-align: center; justify-content: center; align-items: center; align-content: center; border: thin solid black; margin: 0; padding: 0;">
+          <p>{{user.username|first}}</p>
+        </div>
+      </a>
+    </div>
+  </header>
+  <div class="page-1">
+    <div class="container">
+
+        <div class="other-projects">
+        <button class="btn1 active" onclick="activateBtn1()">
+            <label for="arch" class="arch-projects-1">
+                <input type="radio" id="arch" name="project-type" value="arch" checked>
+                <img src="/static/images/free-logo.png" alt=""> 
+            </label>
+        </button>
+        <button class="btn2" onclick="activateBtn2()">
+            <label for="free" class="arch-projects-2">
+                <input type="radio" id="free" name="project-type" value="free">
+                <img src="/static/images/arch-logo2.png" alt="">  
+            </label>
+        </button>
+        <button class="btn3">
+            <label for="video" class="arch-projects-4">
+                <input type="radio" id="video" name="project-type" value="video">
+                <img src="/static/images/video-logo.png" alt="">  
+            </label>
+        </button>
+        <button class="btn3">
+            <label for="sync" class="arch-projects-3">
+                <input type="radio" id="sync" name="project-type" value="sync">
+                <img src="/static/images/sync-logo.png" alt="">  
+            </label>
+        </button>
+        <button class="btn3">
+            <label for="music" class="arch-projects-5">
+                <input type="radio" id="music" name="project-type" value="music">
+                <img src="/static/images/music-logo.png" alt="">  
+            </label>
+        </button>
+        <button class="btn3">
+            <label for="lang" class="arch-projects-6">
+                <input type="radio" id="lang" name="project-type" value="lang">
+                <img src="/static/images/lang-logo.png" alt="">  
+            </label>
+        </button>
+        </div>
+        <div class="projectcontainer">
+        <div class="container-1" id="container1">
+            <div class="archproje-2" id="project6">
+                <img class="butone-2" src="{{user.ci6}}" alt="butone-1">               
+            </div>
+            <div class="archproje-2" id="project7">
+                <img class="butone-2" src="{{user.ci7}}" alt="butone-1">
+            </div>
+            <div class="archproje-2" id="project8">
+                <img class="butone-2" src="{{user.ci8}}" alt="butone-1">
+            </div>
+            <div class="archproje-2" id="project9">
+                <img class="butone-2" src="{{user.ci9}}" alt="butone-1">
+            </div>
+            <div class="archproje-2" id="project10">
+                <img class="butone-2" src="{{user.ci10}}" alt="butone-1">
+            </div>                
+        </div>
+        <div class="container-2" id="container2">
+            <div class="archproje-1" id="project1">
+                <img class="butone-1" src="{{user.ci1}}" alt="butone-2">
+            </div>
+            <div class="archproje-1" id="project2">
+                <img class="butone-1" src="{{user.ci2}}" alt="butone-2">
+            </div>
+            <div class="archproje-1" id="project3">
+                <img class="butone-1" src="{{user.ci3}}" alt="butone-2">
+            </div>
+            <div class="archproje-1" id="project4">
+                <img class="butone-1" src="{{user.ci4}}" alt="butone-2">
+            </div>
+            <div class="archproje-1" id="project5">
+                <img class="butone-1" src="{{user.ci5}}" alt="butone-2">
+            </div>                
+        </div>                
+      </div>
+    </div>
+
+    </div>
+</div>
+<div class="title">
+    <h2>Image Gallery</h2>
+</div>  
+<div class="pin-container" id="pin-container">        
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/1.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Bohemian Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A outdoor porch in the midst of the forest, tall trees, flowers in pots, hanging plants from the ceiling, a bohemian-style rattan seating group</p>
+        </div>            
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/13.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Modern Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A modern building named "Yalı" located along the Bosphorus on the European side of Istanbul, boasts a commanding view of the Bosphorus. It features a modern and minimalist design, with expansive glass facades and terraces maximizing the view. Inside, there are open-plan living areas and luxurious details, all bathed in natural light</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/24.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>A small coffee shop restored within the trunk of a massive old tree, with wicker seats and tables outside the shop. Kitchen utensils used on the tables, extensive landscaping with a variety of plants surrounding it, and the use of natural stone on the ground</p>
+        </div>            
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/11.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content"> 
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Hellenistic Style</div> 
+         <p>The entrance hall of a house, featuring white marble flooring, a semi-open anthracite and light gray-colored coat rack, a seating area inside the coat rack, a round woven straw rug on the floor, decorative objects on the coat rack, a round mirror on the wall, and hidden lighting around the mirror</p>
+         </div>
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/2.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Hellenistic Style/<img src="/static/images/weather-icons/snowy.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>Living room, velvet shiny fabric living room set, walnut parquet flooring, wallpaper with contrasting pattern to the sofas, fireplace, French balcony in front of tall windows</p>
+        </div>            
+    </div>
+   
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/5.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content"> 
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Chinese Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div> 
+         <p>Design a scene depicting a romantic and picturesque Viennese-style ambiance, featuring a charming restaurant situated on an arched bridge overlooking a gently flowing river. The river should be partially visible with small boats or watercraft lazily drifting along its surface. The overall ambiance should evoke a classic elegance and charm characteristic of Viennese architecture and scenery</p>
+         </div>
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/18.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Native Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A multi-story house on the rock, the house's porch, stairs leading to the porch, a pond in front of the house, large rocks</p>
+        </div>            
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/44.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>A wooden house in the amazon jungle, riverbank, flora and fauna, rainy mood, cloudy sky, architectural render, jungle landscape, v ray render, high quality render, mir style, grey, landscape, river, dusk, light, 40mm shot of rainy,futuristic</p>
+        </div>            
+    </div>
+   
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/15.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Constructivist Style/<img src="/static/images/weather-icons/rainy.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A hotel on a pier by the ocean, featuring relaxation areas, a blend of old and modern architectural styles</p>
+        </div>            
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/12.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content"> 
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div> 
+         <p>Describe in detail and vividly a hypothetical library located inside a cave, where the primary architectural element is the giant bookshelves. The library has been restructured with winding pathways among towering trees, utilizing the natural voids of the cave. Focus particularly on the following elements: the harmony of the bookshelves with the natural structure of the cave, the path of the walkways, and the aesthetic contributed by the trees to the library. Additionally, explain the role of environmental factors such as lighting and weather in this unique library</p>
+         </div>
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/3.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content"> 
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Native Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div> 
+         <p>A two-story village house surrounded by carefully planned landscaping next to a waterfall, in the backdrop of a serene lake in a mountainous area, creating a picturesque environment. The house should be constructed with natural materials such as stone and wood, featuring wide verandas and windows to fully enjoy the view. The peaceful atmosphere created by the landscaping and the waterfall surrounding the house, along with natural light</p>
+         </div>
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/9.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Futuristic Style</div>                                
+            <p>The bathroom should be spacious, open, and minimal, featuring clean lines and high technology. Walls and floors should be covered in glossy white ceramic tiles and illuminated with LED light strips. At a central point, there should be a freestanding oval bathtub with touch screen control for water flow and temperature. A wide double vanity unit with concealed faucets should be wall-mounted, and mirrors should be illuminated with touch sensor lights. The smart glass shower cabin, extending from floor to ceiling, should be able to switch from transparency to frosted glass with a touch. Overall, this futuristic bathroom should offer an innovative and luxurious experience that is both functional and aesthetic</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/4.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Bohemian Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>To create a comfortable and inviting atmosphere, design a small to medium-sized terrace featuring natural materials, lush greenery, vintage furniture, colorful textiles, and unique accessories. Incorporate a wooden floor, comfortable cushions, patterned rugs, hanging plants, and handmade decorative items to create a modern yet eclectic bohemian style</p>
+        </div>            
+    </div>
+
+   <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/30.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>Plaza-style buildings situated on expansive grounds, with garden relaxation areas, ornamental ponds, small boutique shops, and landscaping that harmonizes with the area</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/23.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Modern Style</div>                                
+            <p>A very small pantry room with wooden walnut-colored open shelves arranged in a small area from floor to ceiling, featuring neatly arranged pulses in glass jars on the shelves, black marble flooring, spotlights on the ceiling, mustard yellow cabinets, and abundant use of decorative object</p>
+        </div>            
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/31.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Medieval Style/<img src="/static/images/weather-icons/rainy.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A mountain cabin nestled in a forest during the autumn season, with the forest floor covered in dried leaves and diverse plant life, surrounded by deciduous trees and bushes, creating a mysterious and intriguing atmosphere</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/14.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Native Style/<img src="/static/images/weather-icons/snowy.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A two-story triangular bungalow-style mountain house on the lakeside, featuring realistic and detailed forest vegetation, with a veranda in its garden, from a wide angle perspective</p>
+        </div>            
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/25.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content"> 
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Futuristic Style</div> 
+         <p>A glass tunnel underwater, with a concrete floor, featuring different species of plants inside the tunnel and a variety of marine life</p>
+         </div>
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/43.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>A veranda opening to the forest, wicker seating group, natural lake, fish in the lake, natural light, realism, textile products, decorative objects, forest plants, pendant lamps</p>
+        </div>            
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/16.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Industrial Style/<img src="/static/images/weather-icons/rainy.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>Chef's kitchen, designed to be technologically up-to-date, featuring functional cabinets utilized in a spacious area, walnut wood lacquered cabinets, concrete flooring, brick walls, and some walls painted in anthracite color, with an industrial style</p>
+        </div>            
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/54.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>Hobbit houses, children's playgrounds, ornamental ponds, rest areas, autumn season, rainy weather, leaves on the ground</p>
+        </div>            
+    </div>
+
+    
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/8.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Modern Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A modern suite bedroom should be spacious, receiving natural light from large windows, and decorated in a neutral color palette. Soft gray-toned wallpaper should adorn the main wall, while light oak floors should be used on the floors. The bed should be king-size with a stylish headboard, complemented by a white bedding set and pillows in shades of gray. Two modern nightstands, illuminated by elegant lamps, should be placed on either side of the bed. In one corner of the room, there should be a comfortable reading nook with a spacious armchair and a side table. On the opposite wall, there should be a minimalist desk and an ergonomic chair for a workstation</p>
+        </div>    
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/45.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Hellenistic Style</div>                                
+            <p>A suite bedroom inside a cave among fairy chimneys, with a that complements the room</p>
+        </div>            
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/6.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Gothic Style/<img src="/static/images/weather-icons/snowy.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A glass winter garden nestled within the forest, featuring garden seating inside, natural wooden paneling on the floor, hanging plants from the ceiling, and decorative items</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/42.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Modern Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A beauty salon with mirrors, wood, decorative plants, natural fibers, flooring, stainless steel, realistic imagery, high-definition from wide angle, and textile products</p>
+        </div>            
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/28.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Victorian Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A three-story large shopping mall, decorative artificial plants, seating areas around trees, gallery void, store displays, harmony of decorative objects with the space</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/40.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Industrial Style/<img src="/static/images/weather-icons/snowy.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A stone house left alone in the desert, positioned in the middle of the rocks, wild desert plants growing in the desert on an arid ground</p>
+        </div>            
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/7.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>Placing a shopping center in the middle of a canyon with mountainous terrain, blending natural stone and wood materials, adorned with colorful mosaics and handmade artworks. The center features outdoor terraces, green roof areas, organic markets, boutique shops, art galleries, and cozy café spaces. Designing walking paths and seating areas that offer visitors a unique and comfortable shopping experience immersed in nature. Wide shot</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/41.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>Let it be a 6-storey apartment building with plants on its balcony</p>
+        </div>            
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/46.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content"> 
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div> 
+         <p>A nature-friendly concrete residence built within the forest, perched on the edge of a cliff, offering expansive panoramic views, natural light, a waterfall cascading from the rocks, hammocks in the garden, and an infinity pool</p>
+         </div>
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/19.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Modern Style/<img src="/static/images/weather-icons/rainy.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A veranda nestled within the forest, featuring a wicker seating group and table, set against the forest floor of an imagined woodland with tall, majestic trees. It's November, the season of falling leaves, with an emphasis on hyperrealism amidst windy weather and wet ground, illuminated by swaying lights</p>
+        </div>            
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/48.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Country Style</div>                                
+            <p>A laundry room with a washing machine, a dryer, open shelves, decorative textile products, white ceramic marble flooring, orange walls, open shelves with decorative textile products</p>
+        </div>            
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/21.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Bohemian Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>To create a comfortable and inviting atmosphere, design a small to medium-sized terrace featuring natural materials, lush greenery, vintage furniture, colorful textiles, and unique accessories. Incorporate a wooden floor, comfortable cushions, patterned rugs, hanging plants, and handmade decorative items to create a modern yet eclectic bohemian style</p>
+        </div>            
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/26.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content"> 
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Hellenistic Style/<img src="/static/images/weather-icons/cloudy.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div> 
+         <p>An amphitheater building over the lake</p>
+         </div>
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/32.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content"> 
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div> 
+         <p>A holiday resort in Egypt, with the Egyptian pyramids visible, decorative pools, palm trees, people</p>
+         </div>
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/22.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Neoclassical Style</div>                                
+            <p>A spacious dressing room with a satin sofa, white marble flooring, floor-to-ceiling wardrobes with glass doors, LED lighting inside the wardrobes, and a neoclassical arrangement of clothes</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/39.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Constructivist Style</div>                                
+            <p>The modern study room, located on the top floor of the plaza, has leather armchairs, a bookshelf, a desk, a black marble floor and realistic details</p>
+        </div>            
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/35.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>A structure on an Antarctic glacier, reflecting the northern lights, auroras, stars, moon, meteorites, ocean and reflections, in the darkness of night</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/17.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>The museum inside the canyon cave</p>
+        </div>            
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/10.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Baroque Style/<img src="/static/images/weather-icons/rainy.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>Doner kebab cafe named Limmeat, cyberpunk and traditional Turkish style</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/38.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>Small tree house, use natural materials, look at nature</p>
+        </div>            
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/47.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content"> 
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Modern Style</div> 
+         <p>A medium-sized functional kitchen, with mink-colored kitchen cabinets, a mirror on the wall, pendant lights, open shelves with kitchen textiles, ceramic flooring</p>
+         </div>
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/33.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>Hellenistic-style villas in the Maldives, villa landscaping, decorative pools, children's play areas, walking paths, biking trails, flying birds, forest scenery in the background, aqua parks</p>
+        </div>            
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/51.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Modern Style</div>                                
+            <p>A children's room with patterned bedding, a teddy bear on the bed, a toy corner, textile products, a pink rug, walnut-colored parquet flooring</p>
+        </div>            
+    </div>
+    
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/36.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>A restaurant in the canyon mountain, natural wooden round tables, seating groups, twilight, modern style</p>
+        </div>    
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/20.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Exterior Design/Modern Style/<img src="/static/images/weather-icons/dusk.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A wooden house in the Amazon rainforest, situated by the riverbank amidst lush flora and fauna. The mood is rainy, with a cloudy sky. This architectural render showcases the forest landscape in high quality, mirroring the grey ambiance of the surroundings. The focus is on the landscape, the river, and the light, with a 40mm shot capturing the rainy atmosphere</p>
+        </div>    
+    </div>
+
+   
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/37.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Bohemian Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 7%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A modern fish restaurant, wooden tables and chairs, wooden pendant lamps, full tables, plenty of decorative objects</p>
+        </div>    
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/27.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>An amphitheater over the lake, surrounded by a mountainous forested area with biodiversity, cultural heritage from ancient times, in Hellenistic style, during the autumn season</p>
+        </div>    
+    </div>
+
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/post-image/52.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design/Modern Style</div>                                
+            <p>Ultra-Modern Island Villa: Perched on a cliff overlooking the ocean, with sleek lines and sharp angles, minimalist aesthetic, panoramic sunset view, Norman Foster style, architectural photography, photorealism, Hasselblad H6D, high contrast, high detail, 4k resolution</p>
+        </div>            
+    </div>
+         
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/29.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Cyberpunk Style</div>                                
+            <p>A family cinema room, with a concept of a private and comfortable space, featuring a large screen showing the movie Titanic, designed to evoke mystery, with specially designed comfortable seats. The color of the seats is black leather, and the walls are dark black</p>
+        </div>    
+    </div>
+
+    <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/34.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Baroque Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>A suite bedroom under the sea, in a bohemian style, with marble flooring, showcasing the underwater living space</p>
+        </div>    
+    </div>
+    
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/49.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+         <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Interior Design/Ottoman Style/<img src="/static/images/weather-icons/sunny.png" alt="" style="width: 8%; filter:drop-shadow(0 0 0.1px white)"></div>                                
+            <p>An Ottoman-style bathhouse, with beige marble flooring, decorative marble walls, decorative textile products, sauna</p>
+        </div>    
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/50.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>Smurf-themed mushroom houses</p>
+        </div>            
+    </div>
+
+    <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/post-image/53.png); background-size: cover; background-position: center;
+    align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+        <div class="card-content">
+            <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+            <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Landscape Design</div>                                
+            <p>A neighborhood with tall buildings, cars on the street, autumn season, foggy weather</p>
+        </div>            
+    </div>
+</div>
+
+<div class="pin-container-2" id="pin-container-2">        
+    <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/2.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Sci-fi Style</div>                                
+                <p>The main character of a science fiction adventure set on a future space station: With their face pressed against the frosted surface of the window, the young astronaut embarks on an interstellar exploration. Alone in the observation room, they breathe calmly as they navigate through the depths of space, where lost stars conceal dark threats. Beneath the stars in the sky, they pursue the trail of secrets waiting to be uncovered</p>
+            </div>            
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/14.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>A group of adventurers engages in a thrilling race down a colossal ice cream mountain: Sliding through cascades of chocolate and caramel waterfalls, the adventurers ascend to the peak of the giant ice cream mountain. They organize a competition filled with colorful ice cream balls, culminating in an event where the winner gets to plunge into an ice cream sea</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/30.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Fashion Style</div>                                
+                <p>A fashion designer draws inspiration from natural materials such as leaves, stones, and shells to create an organic clothing collection</p>
+            </div>            
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/32.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content"> 
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div> 
+             <p>Living among the icebergs, a penguin dreams an extraordinary dream: to journey into space! It sits at the control panel of a massive rocket, dons goggles, and excitedly presses the launch button. Perched atop the rocket, it embarks on a comical adventure filled with amusing moments</p>
+             </div>
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/39.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>The Terrifying Guardian of the Deep Caverns: The Flame-Eyed Minotaur. This colossal creature silently roams the labyrinthine caves, its eyes blazing with fire and smoke billowing from its nostrils. With its massive horns, it comes face to face with a human</p>
+            </div>            
+        </div>
+       
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/33.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content"> 
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Gothic Style</div> 
+             <p>A cat and a dog come together in the middle of the kitchen for a baking adventure. The cat's paw is covered in flour, and the dog's nose is smeared with chocolate, leading to funny scenes</p>
+             </div>
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/38.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Gothic Style</div>                                
+                <p>Let people take flight in transparent colored bubbles. Each bubble is filled with lights that shimmer in different colors. Humans soar alongside these transparent colored bubbles, creating a magical scene of airborne beauty</p>
+            </div>            
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/45..png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>Snakes fighting amidst fireballs</p>
+            </div>            
+        </div>
+       
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/41.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Gothic Style</div>                                
+                <p>The "Shadow Ghost" hunts among the shadows, lurking and prowling at night. Its identity remains unknown, visible only in darkness</p>
+            </div>            
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/16.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content"> 
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Sci-fi Style</div> 
+             <p>Under the full moon in a sky ablaze with lightning amidst a storm, a group of pirates searches for treasure hidden within a moss-covered shipwreck: Excitedly embarking on a quest for the treasure hidden within the depths of the sea, the pirates navigate through the interior of the moss-covered sunken ship, unraveling secrets concealed in the ocean's depths</p>
+             </div>
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/12.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content"> 
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Fashion Style</div> 
+             <p>Underneath the stars sparkling in the night sky, a vibrant street party unfolds where a group of alien ninjas engage in an epic dance battle: Neon lights illuminate the scene as music blares loudly, setting the stage for the ninjas to dance and fight with wild abandon. Colorful fireworks burst overhead, lighting up the sky in a dazzling display</p>
+             </div>
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/40.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>The mysterious ugly witch resides deep within the forest, brewing malevolent spells in a large cauldron</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/34.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Gothic Style</div>                                
+                <p>An elephant has plunged into a large plate of spaghetti. However, its large trunk creates funny moments as it attempts to eat the spaghetti. The strands of spaghetti get tangled in the elephant's nostrils and caught on its enormous ears</p>
+            </div>            
+        </div>
+
+       <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/8.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Fantasy Art Style</div>                                
+                <p>In a scientist's laboratory, an extraordinary scene unfolds after a mysterious experiment on the table explodes: The laboratory fills with beams of light and chemical vapors from the impact, leaving the scientist in awe as they gaze around. Experiment tubes and devices on the table lie shattered, while an extraordinary energy field radiates throughout the room</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/20.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>Under the scorching sun, as sand grains swirl in the wind, a desert tribe community dances with a massive sandstorm: Celebrating the power of nature with rhythmic drumbeats and wild dance moves, they revel in the midst of the swirling sands</p>
+            </div>            
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/46.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Anime Style</div>                                
+                <p>The cheese thief with glasses: three mice</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/43.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Anime Style</div>                                
+                <p>Ants exercise in a gym using tiny sports equipment. They lift small weights as part of their workout routine</p>
+            </div>            
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/15.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content"> 
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div> 
+             <p>At a witch school, a magical cake competition unfolds among apprentices: Surrounded by hats adorned with feathers and flying broomsticks in the enchanted school, apprentices compete to create the most creative and delicious cakes using magical ingredients. The atmosphere is filled with pink smoke and magical sparks flying as they showcase their culinary wizardry</p>
+             </div>
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/10.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Long Exposore Style</div>                                
+                <p>In a post-apocalyptic world, a scene unfolds demonstrating how nature copes with concrete cities: Amidst the ruins of collapsed buildings, lush vegetation rises, reclaiming a world taken back by nature. Wild animals roam through deserted streets, while the remnants of human-made structures reflect the power of nature reclaiming its territory</p>
+            </div>            
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/31.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>City on moon,huge area, realistic photos</p>
+            </div>            
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/48.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>A tiny single-story clubhouse made from broccoli vegetables</p>
+            </div>            
+        </div>
+
+        
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/4.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Sci-fi Style</div>                                
+                <p>As the deep-sea exploration vehicle delves into the ocean depths, it encounters a surprising sight: the shadow of a metallic creature emerging from the darkness below. Moving silently, the submarine advances under flickering lights, revealing alongside the ocean floor a rare submarine habitat, next to this monster in the depths of the ocean</p>
+            </div>    
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/13.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Long Exposure Style</div>                                
+                <p>In a lost city, mysterious creatures play hide and seek amidst the ruins: In the darkness of the night, these creatures illuminate their surroundings with phosphorescent skins as they dart among the remnants of an ancient city. Echoing through their game is the voice of a mysterious leader, guiding them through the shadows</p>
+            </div>            
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/11.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Fashion Style</div>                                
+                <p>A group of penguins entertains themselves by organizing a slide competition down an iceberg: Adorned with colorful lanterns, penguins slide down from the top of the iceberg, laughing and enjoying a spirited competition. Below the sea surface, they head towards a hidden underwater ice rink for a disco party</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/5.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Fantasy Art Style</div>                                
+                <p>In a fantastical world, a dragon flock creates a breathtaking scene as they soar through the skies: Spewing fire, the dragons spread their enormous wings and perform a spectacular display high above. Their colorful scales glitter in the sunlight, casting shadows on the ground below and leaving humans awestruck with their bewildered gazes</p>
+            </div>            
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/18.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Fantasy Art Style</div>                                
+                <p>In the infinite expanse of space, a spaceship races on a track illuminated by colorful lights where the galaxy's wildest races are held: Spaceships speed along, pilots navigating through crazy twists and turns, competing fiercely for the first place under the shimmering lights of the race track</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/27.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Photographic Style</div>                                
+                <p>A group of fairies amusingly disrupts people's camping experiences in the forest: Campers encounter unexpected visitors at night as fairies playfully swap their equipment around, dance around the campfire, and engage in humorous games while they sleep. The fairies add a colorful twist to the campers' experience with their mischievous antics</p>
+            </div>            
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/26.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>A group of circus animals embarks on an unauthorized adventure in the city, seeking thrills beyond the confines of the circus. Unexpectedly, they get lost and find themselves in amusing predicaments in the city's most peculiar places. Picture a scenario like an elephant getting lost in the subway or a monkey sneaking candies from a grocery store</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/37.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Gothic Style</div>                                
+                <p>A rabbit and a tortoise participate in a big carrot-eating contest. The rabbit eagerly tries to eat the carrots quickly. However, the rabbit loses control due to its speed and tumbles to the ground several times</p>
+            </div>            
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/36.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content"> 
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div> 
+             <p>An alien cowboy participates in a contest related to cacti found in a barren landscape. The alien uses strange technological devices to aid in the growth of the cacti</p>
+             </div>
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/49.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>An African baby with blue eyes and curly yellow hair</p>
+            </div>            
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/44.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Gothic Style</div>                                
+                <p>In the depths of the ocean, butterflies flutter inside an overturned bottle</p>
+            </div>            
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/28.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Fashion Style</div>                                
+                <p>A carpenter showcases creative and functional furniture designs made from recycled wooden pallets</p>
+            </div>            
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/47.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content"> 
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Gothic Style</div> 
+             <p>In the depths of the ocean, the swirling dance of millions of tiny colorful reef fish, captured in a wide-angle shot with a 40mm lens setting</p>
+             </div>
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/42.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content"> 
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div> 
+             <p>The magnificent dance of bewildered chickens. It should be a very fun environment, reminiscent of a cartoon scene</p>
+             </div>
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/35.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>A panda and a monkey take up musical instruments and make plans to form a funny music band. The panda sits behind a massive drum set, while the monkey jumps around on stage with a tiny guitar. The monkey gets tangled in the guitar strings and falls. Both of them laugh together, enjoying the fun of making music</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/7.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Sci-fi Style</div>                                
+                <p>Underneath the night sky, a space ship races through a thunderstorm filled with lightning: Against a darkened sky, the spaceship streaks amidst flashes of lightning, speeding through a thunderstorm filled with rumbling thunder and crackling bolts. Onboard the crew, illuminated by flickering lights, embark on a dark and perilous journey</p>
+            </div>            
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/17.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>A herd of dinosaurs gathers around a giant pizza for a party: Dancing around the enormous and delicious pizza, the dinosaurs groove to loud music, filling the forest with the tantalizing aroma of the giant pizza</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/6.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>Hidden within a forest, an ancient temple scene unfolds where sunlight filters through gaps, casting beams inside: Among towering stone columns, leafy trees, and moss-covered rocks, the remnants of an ancient temple lie concealed. Beams of light filtering down from the sky dance upon mysterious inscriptions, disrupting the silence within the forest</p>
+            </div>            
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/19.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Fashion Style</div>                                
+                <p>As sunlight filters through the leaves of the trees, a group of fairies and elves gather for a picnic in a mystical forest: They open bottles of golden champagne and enjoy sweet treats adorned with flowers, reveling in the serene atmosphere of the enchanted woodland</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/29.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Gothic Style</div>                                
+                <p>A ceramic artist creates modern and aesthetically striking vases and sculptures using old pottery fragments</p>
+            </div>            
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/24.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content"> 
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Fantasy Art Style</div> 
+             <p>Under cover of night, a group of fairies clandestinely enters human gardens to hang laundry adorned with colorful lights. However, things take an unexpected turn when the fairy garments are noticed by humans</p>
+             </div>
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/21.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Anime Style</div>                                
+                <p>In the early morning hours, a chase ensues in the farmer's field as a group of bewildered chickens unexpectedly hitch onto the back of the farmer's tractor: Instead of fleeing on foot, they begin to take a joyride around the field with the tractor, much to everyone's surprise</p>
+            </div>            
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/50.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Anime Style</div>                                
+                <p>A chameleon parachuting through the desert</p>
+            </div>            
+        </div>
+        
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/25.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Photographic Style</div>                                
+                <p>When a group of alien tourists visits Earth, they embark on a journey to explore the planet's most famous landmarks. However, their peculiar appearances and behaviors lead to humorous incidents at tourist spots, leaving humans bewildered</p>
+            </div>    
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/1.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>From the perspective of a time traveler, a scene unfolds where a man in noble attire experiences a momentous historical event in a square illuminated by sunlight. A crowd gathers around a throne at the center of the square, listening intently to a speech echoing through the air. In the background, a towering castle rises, smoke billowing, and mounted guards protect the throne</p>
+            </div>    
+        </div>
+
+       
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/3.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>The hidden vista of an elven city nestled among tall trees: Within the lush green forest, elegant structures are nestled among the towering branches, shimmering with radiant lights. In the silence of the night, elf warriors tread softly along the walkways, while a magical veil of light surrounds the city, warding off external threats</p>
+            </div>    
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/9.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>At the heart of a dystopia lies the sprawling, decayed panorama of a massive metropolis: Amidst crumbling buildings, dirty streets, and rusted vehicles, remnants of a once-vast cityscape endure. Faded billboards and graffiti on walls reflect the deteriorated beauty of this dystopian world over time</p>
+            </div>    
+        </div>
+
+        <div class="card card-small" style="width: 300px; height: 430px; border-radius: 16px; background-image: url(/static/images/images-free/54.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Fashion Style</div>                                
+                <p>Fireflies dancing around a little prince and a frog</p>
+            </div>            
+        </div>
+             
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/22.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>Deep within the forest, the monkey king establishes a comical military camp consisting not of ordinary soldiers but of the naughtiest creatures of the woods: squirrels, raccoons, and even a few foxes! Amidst the training, hilarity ensues as the army is thrown into complete chaos by the antics of its unconventional members</p>
+            </div>    
+        </div>
+
+        <div class="card card-large" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/23.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Sci-fi Style</div>                                
+                <p>Programmed to care for people's pets while they are away, a robot encounters unexpected and humorous situations: Cats and dogs exhibit peculiar behaviors that shake the robot's algorithms and disrupt the household order</p>
+            </div>    
+        </div>
+        
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/51.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+             <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>Glass spheres floating above the sea, neighborhoods trapped inside the spheres</p>
+            </div>    
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/52.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Anime Style</div>                                
+                <p>The funny crab drinking water from a glass</p>
+            </div>            
+        </div>
+
+        <div class="card card-medium" style="width: 300px; height: 280px; border-radius: 16px; background-image: url(/static/images/images-free/53.png); background-size: cover; background-position: center;
+        align-items: center; display: flex; flex-direction: column; position: relative; justify-content: flex-end;">
+            <div class="card-content">
+                <i class="fa-solid fa-clone" onclick="copyText(this)"></i> 
+                <div class="style_img" style="display: flex; flex-direction: row; align-items: center; position: relative; justify-content: start; font-size: small;">Cinematic Style</div>                                
+                <p>The child who fell asleep inside the book</p>
+            </div>            
+        </div> 
+</div>
+
+<script>
+  function copyText(element) {
+      const textToCopy = element.parentElement.querySelector('p').textContent.trim();
+      navigator.clipboard.writeText(textToCopy).then(() => {
+          element.classList.add('copied'); 
+          setTimeout(() => {
+              element.classList.remove('copied'); 
+          }, 1000);
+      }).catch(err => {
+          console.error('Metin kopyalanırken bir hata oluştu:', err);
+      });
+  }
+  var profileLink = document.getElementById('profile');
+  var logoutMenu = document.createElement('div');
+  logoutMenu.id = 'logout-menu';
+  logoutMenu.innerHTML = `
+      <ul>
+            <li><p>{{user.username}}</p></li>
+            <li><a id="logout-link">Logout</a></li>
+      </ul>
+  `;
+  
+  profileLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (logoutMenu.style.display === 'none' || logoutMenu.style.display === '') {
+          logoutMenu.style.display = 'flex';
+      } else {
+          logoutMenu.style.display = 'none';
+      }
+  });
+
+  document.body.appendChild(logoutMenu);
+
+  var logoutLink = document.getElementById('logout-link');
+
+  logoutLink.addEventListener('click', function(event) {
+      event.preventDefault();
+
+      fetch("/logout/", {
+          method: 'POST',
+          headers: {
+              'X-CSRFToken': '{{ csrf_token }}'
+          },
+          credentials: 'same-origin'
+      }).then(response => {
+          if (response.ok) {
+              window.location.href = '/';
+          } else {
+              console.error('Çıkış işlemi başarısız.');
+          }
+      }).catch(error => {
+          console.error('Çıkış işlemi sırasında bir hata oluştu:', error);
+      });
+  });
+
+  document.addEventListener('click', function(event) {
+      if (!logoutMenu.contains(event.target) && !profileLink.contains(event.target)) {
+          logoutMenu.style.display = 'none';
+      }
+  });
+</script>
+
+</body>
+</html>

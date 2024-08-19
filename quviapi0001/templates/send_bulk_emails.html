@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Bulk Emails</title>
+    <style>
+        .header {
+            font-size: 20px;
+            color: black;
+        }
+        img {
+            height: 80px;
+            width: 250px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <h1>Send Bulk Emails</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <label for="email_template">Choose HTML File:</label>
+            <input type="file" id="email_template" name="email_template" accept=".html" required>
+        </div>
+        <button type="submit">Send Emails</button>
+    </form>
+</body>
+</html>

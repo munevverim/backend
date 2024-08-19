@@ -1,0 +1,29 @@
+# Python ve Django için gerekli gitignore kuralları
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+/db.sqlite3
+
+# env ve diğer virtual environment klasörleri
+venv/
+env/
+ENV/
+.idea/
+.vscode/
+
+# Local settings
+local_settings.py
+
+# Debugger configurations
+.vscode/

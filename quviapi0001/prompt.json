@@ -1,0 +1,231 @@
+{
+  "10": {
+    "inputs": {
+      "max_shift": 1.15,
+      "base_shift": 0.5,
+      "width": [
+        "18",
+        0
+      ],
+      "height": [
+        "18",
+        1
+      ],
+      "model": [
+        "34",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingFlux",
+    "_meta": {
+      "title": "ModelSamplingFlux"
+    }
+  },
+  "11": {
+    "inputs": {
+      "samples": [
+        "12",
+        0
+      ],
+      "vae": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "12": {
+    "inputs": {
+      "noise": [
+        "16",
+        0
+      ],
+      "guider": [
+        "15",
+        0
+      ],
+      "sampler": [
+        "13",
+        0
+      ],
+      "sigmas": [
+        "14",
+        0
+      ],
+      "latent_image": [
+        "18",
+        4
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "13": {
+    "inputs": {
+      "sampler_name": "uni_pc_bh2"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "14": {
+    "inputs": {
+      "scheduler": "sgm_uniform",
+      "steps": 4,
+      "denoise": 1,
+      "model": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "15": {
+    "inputs": {
+      "model": [
+        "10",
+        0
+      ],
+      "conditioning": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "BasicGuider"
+    }
+  },
+  "16": {
+    "inputs": {
+      "noise_seed": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "18": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "aspect_ratio": "custom",
+      "swap_dimensions": "Off",
+      "upscale_factor": 1,
+      "batch_size": 1
+    },
+    "class_type": "CR SDXL Aspect Ratio",
+    "_meta": {
+      "title": "🔳 CR SDXL Aspect Ratio"
+    }
+  },
+  "19": {
+    "inputs": {
+      "clip_l": [
+        "25",
+        0
+      ],
+      "t5xxl": [
+        "25",
+        0
+      ],
+      "guidance": 3,
+      "clip": [
+        "35",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncodeFlux",
+    "_meta": {
+      "title": "CLIPTextEncodeFlux"
+    }
+  },
+  "21": {
+    "inputs": {
+      "text_positive": "villa",
+      "text_negative": "",
+      "milehigh": "Art Deco Architecture",
+      "log_prompt": false
+    },
+    "class_type": "MilehighStyler",
+    "_meta": {
+      "title": "MilehighStyler"
+    }
+  },
+  "23": {
+    "inputs": {
+      "seed": 976769984454172
+    },
+    "class_type": "Seed String",
+    "_meta": {
+      "title": "Seed String (Mikey)"
+    }
+  },
+  "25": {
+    "inputs": {
+      "text": [
+        "21",
+        0
+      ],
+      "text2": "Art Deco Architecture villa, Art Deco Architecture, often for decorative arts, geometric motifs, or 1920s glamour."
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text"
+    }
+  },
+  "34": {
+    "inputs": {
+      "unet_name": "flux1-schnell.sft",
+      "weight_dtype": "fp8_e4m3fn"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "35": {
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "36": {
+    "inputs": {
+      "vae_name": "ae.sft"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "37": {
+    "inputs": {
+      "images": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "SaveImageWebsocket",
+    "_meta": {
+      "title": "SaveImageWebsocket"
+    }
+  }
+}

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
+    <title>Qarch Editor</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script src="https://unpkg.com/fabric@5.3.0/dist/fabric.min.js"></script>
+    <script type="text/javascript" src="/static/js/editorv000012.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/stylev000012.css">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <link rel="canonical" href="https://quvi.ai" />
+</head>
+
+<body>
+    <header>
+        <a style="justify-content: center; align-content: center; align-items: center; height: 80%; width: 6%; margin-left: 3%; padding: 0; margin-right: 5%;" href="/project"><img src="/static/images/arch-logo2.png" alt="q arch Logo" width="100%" height="90%"></a>
+        <div class="scale-area">
+            <label for="s" class="scale-button">
+                <input type="radio" id="s" name="scale" value="s">
+                <span class="radio-text2"><span>1:1</span>
+                <div style="height: 16px; width: 16px; border: thin solid white; background-color: #1c1c1c;"></div></span>
+            </label>
+            <label for="h" class="scale-button">
+                <input type="radio" id="h" name="scale" value="h">
+                <span class="radio-text2"><span>4:3</span>
+                <div style="height: 12px; width: 16px; border: thin solid white; background-color: #1c1c1c;"></div></span>
+            </label>
+            <label for="v" class="scale-button">
+                <input type="radio" id="v" name="scale" value="v">
+                <span class="radio-text2"><span>3:4</span>
+                <div style="height: 16px; width: 12px; border: thin solid white; background-color: #1c1c1c;"></div></span>
+            </label>
+            <label for="h2" class="scale-button">
+                <input type="radio" id="h2" name="scale" value="h2">
+                <span class="radio-text2"><span>16:9</span>
+                <div style="height: 9px; width: 16px; border: thin solid white; background-color: #1c1c1c;"></div></span>
+            </label>
+            <label for="v2" class="scale-button">
+                <input type="radio" id="v2" name="scale" value="v2">
+                <span class="radio-text2"><span>9:16</span>
+                <div style="height: 16px; width: 9px; border: thin solid white; background-color: #1c1c1c;"></div></span>
+            </label>
+        </div>
+        <div style="display: flex; flex-direction: row; width: 17%; height: 100%; align-items: center; justify-content: space-evenly;">
+        <button class="download" id="download">Export</button>
+        <div class="user-profile">
+            <a href="{% url 'pricing' %}" style="display: flex; justify-content: flex-start; align-items: center; text-decoration: none; text-align: center; width: 80%;">
+                    <img src="/static/images/QUVI COIN.png" alt="Coin" width="30%" height="50%" /> 
+                    <i id="user-credit" style="color: white; font-size: 1.2rem; font-family: 'oswald'; font-style: normal; height: 100%; width: 20%; font-weight: 700;">{{user.credit}}</i></a>
+            <a id="profile" href="#" style="justify-content: center; align-content: center; align-items: center; height: 100%; width: 25%; padding: 0; text-decoration: none;">
+              <div style="color: white; display: flex; font-family: 'LTSuperior-r'; font-size: x-large; background-color: rgb(66, 20, 20); height: 90%; width: 100%; border-radius: 50%; text-align: center; justify-content: center; align-items: center; align-content: center; border: thin solid black; margin: 0; padding: 0;">
+                <p>{{user.username|first}}</p>
+              </div>
+            </a>
+        </div>
+        </div>
+    </header>
+    <div class="edit-area">
+		<div class="generate-area">
+        <div class="t2i-area">
+            <div class="inorex" style="margin-bottom: 20px; margin-top: 20px;">
+                <label for="interior" class="radio-label3">
+                    <input type="radio" id="interior" name="design" value="Interior" checked>
+                    <span class="radio-text">Interior</span>
+                </label>
+                <label for="exterior" class="radio-label3">
+                    <input type="radio" id="exterior" name="design" value="Exterior">
+                    <span class="radio-text">Exterior</span>
+                </label>
+            </div>
+            <div class="inorex" style="margin-bottom: 20px; margin-top: 20px;">
+                <label for="floor-plan" class="radio-label3">
+                    <input type="radio" id="floor-plan" name="design" value="floor-plan">
+                    <span class="radio-text">Floor Plan</span>
+                </label>
+                <label for="landscape" class="radio-label3">
+                    <input type="radio" id="landscape" name="design" value="landscape">
+                    <span class="radio-text">Landscape</span>
+                </label>
+            </div>
+            <div id="style-decider" class="style-decider" style="display: flex; justify-content: center; height: 40%; max-height: 200px; width: 90%; margin: 2%;">
+                <div class="styles">
+                    <div class="style-wrap">
+                        <label for="modern" class="radio-label">
+                            <input type="radio" id="modern" name="style" value="Hypermodern" checked>
+                            <img id="modern-img" src="/static/images/styles/1.MODERN/interior.png" alt="Modern Style interior design"/>
+                        </label>
+                        <span class="style-text">Modern</span>
+                    </div>
+                    <div class="style-wrap">
+                        <label for="Neoclassical" class="radio-label">
+                            <input type="radio" id="Neoclassical" name="style" value="Neoclassical">
+                            <img id="neoclassical-img" src="/static/images/styles/2.NEOCLASSIC/interior.png" alt="Neoclassical Style interior design"/>
+                        </label>
+                        <span class="style-text">Neoclassical</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Ancient-Chinese" class="radio-label">
+                            <input type="radio" id="Ancient-Chinese" name="style" value="Ancient Chinese">
+                            <img id="ancient-chinese-img" src="/static/images/styles/3.CHINESE/interior.png" alt="Ancient Chinese Style interior design"/>
+                        </label>
+                        <span class="style-text">Chinese</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Hellenistic" class="radio-label">
+                            <input type="radio" id="Hellenistic" name="style" value="Hellenistic">
+                            <img id="hellenistic-img" src="/static/images/styles/4.HELLENISTIC/interior.png" alt="Hellenistic Style interior design"/>
+                        </label>
+                        <span class="style-text">Hellenistic</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Constructivist" class="radio-label">
+                            <input type="radio" id="Constructivist" name="style" value="Constructivist">
+                            <img id="constructivist-img" src="/static/images/styles/5.CONSTRUCTIVIST/interior.png" alt="Constructivist Style interior design"/>
+                        </label>
+                        <span class="style-text">Constructivist</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Futuristic" class="radio-label">
+                            <input type="radio" id="Futuristic" name="style" value="Futuristic">
+                            <img id="futuristic-img" src="/static/images/styles/6.FUTURISTIC/interior.png" alt="Futuristic Style interior design"/>
+                        </label>
+                        <span class="style-text">Futuristic</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Minimalist" class="radio-label">
+                            <input type="radio" id="Minimalist" name="style" value="Minimalist">
+                            <img id="minimalist-img" src="/static/images/styles/7.MINIMALIST/interior.png" alt="Minimalist Style interior design"/>
+                        </label>
+                        <span class="style-text">Minimalist</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Cyberpunk" class="radio-label">
+                            <input type="radio" id="Cyberpunk" name="style" value="Cyberpunk">
+                            <img id="cyberpunk-img" src="/static/images/styles/8.CYBERPUNK/interior.png" alt="Cyberpunk Style interior design"/>
+                        </label>
+                        <span class="style-text">Cyberpunk</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Industrial" class="radio-label">
+                            <input type="radio" id="Industrial" name="style" value="Industrial">
+                            <img id="industrial-img" src="/static/images/styles/9.INDUSTRIAL/interior.png" alt="Industrial Style interior design"/>
+                        </label>
+                        <span class="style-text">Industrial</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Gothic" class="radio-label">
+                            <input type="radio" id="Gothic" name="style" value="Gothic">
+                            <img id="gothic-img" src="/static/images/styles/10.GOTHIC/interior.png" alt="Gothic Style interior design"/>
+                        </label>
+                        <span class="style-text">Gothic</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Native-American" class="radio-label">
+                            <input type="radio" id="Native-American" name="style" value="Native American">
+                            <img id="native-american-img" src="/static/images/styles/11.NATIVE/interior.png" alt="Native American Style interior design"/>
+                        </label>
+                        <span class="style-text">Native</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Baroque" class="radio-label">
+                            <input type="radio" id="Baroque" name="style" value="Baroque">
+                            <img id="baroque-img" src="/static/images/styles/12.BAROQUE/interior.png" alt="Baroque Style interior design"/>
+                        </label>
+                        <span class="style-text">Baroque</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Rococo" class="radio-label">
+                            <input type="radio" id="Rococo" name="style" value="Rococo">
+                            <img id="rococo-img" src="/static/images/styles/13.ROCOCO/interior.png" alt="Rococo Style interior design"/>
+                        </label>
+                        <span class="style-text">Rococo</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Bauhaus" class="radio-label">
+                            <input type="radio" id="Bauhaus" name="style" value="Bauhaus">
+                            <img id="bauhaus-img" src="/static/images/styles/14.BAUHAUS/interior.png" alt="Bauhaus Style interior design"/>
+                        </label>
+                        <span class="style-text">Bauhaus</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Art-Deco" class="radio-label">
+                            <input type="radio" id="Art-Deco" name="style" value="artstyle-art deco">
+                            <img id="art-deco-img" src="/static/images/styles/15.ART DECO/interior.png" alt="Art-Deco Style interior design"/>
+                        </label>
+                        <span class="style-text">Art Deco</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Medieval" class="radio-label">
+                            <input type="radio" id="Medieval" name="style" value="Medieval">
+                            <img id="medieval-img" src="/static/images/styles/16.MEDIEVAL/interior.png" alt="Medieval Style interior design"/>
+                        </label>
+                        <span class="style-text">Medieval</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Byzantine" class="radio-label">
+                            <input type="radio" id="Byzantine" name="style" value="Byzantine">
+                            <img id="byzantine-img" src="/static/images/styles/17.BYZANTINE/interior.png" alt="Byzantine Style interior design"/>
+                        </label>
+                        <span class="style-text">Byzantine</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Renaissance" class="radio-label">
+                            <input type="radio" id="Renaissance" name="style" value="Renaissance">
+                            <img id="renaissance-img" src="/static/images/styles/18.RENAISSANCE/interior.png" alt="Renaissance Style interior design"/>
+                        </label>
+                        <span class="style-text">Renaissance</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Ottoman" class="radio-label">
+                            <input type="radio" id="Ottoman" name="style" value="Ottoman">
+                            <img id="ottoman-img" src="/static/images/styles/19.OTTOMAN/interior.png" alt="Ottoman Style interior design"/>
+                        </label>
+                        <span class="style-text">Ottoman</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Victorian" class="radio-label">
+                            <input type="radio" id="Victorian" name="style" value="Victorian">
+                            <img id="victorian-img" src="/static/images/styles/20.VICTORIAN/interior.png" alt="Victorian Style interior design"/>
+                        </label>
+                        <span class="style-text">Victorian</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Bohemian" class="radio-label">
+                            <input type="radio" id="Bohemian" name="style" value="Bohemian">
+                            <img id="bohemian-img" src="/static/images/styles/21.BOHEMIAN/interior.png" alt="Bohemian Style interior design"/>
+                        </label>
+                        <span class="style-text">Bohemian</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Country" class="radio-label">
+                            <input type="radio" id="Country" name="style" value="Country">
+                            <img id="country-img" src="/static/images/styles/22.COUNTRY/interior.png" alt="Country Style interior design"/>
+                        </label>
+                        <span class="style-text">Country</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Scandinavian" class="radio-label">
+                            <input type="radio" id="Scandinavian" name="style" value="Scandinavian">
+                            <img id="nordic-img" src="/static/images/styles/23.NORDIC/interior.png" alt="Scandinavian Style interior design"/>
+                        </label>
+                        <span class="style-text">Nordic</span>
+                    </div>	
+                </div>
+            </div>
+			<div id="weather-decider" class="weather-decider" style="display: flex; justify-content: center; height: 10%; max-height: 50px; width: 90%; margin: 2%;">
+				<div class="weathers">
+					<div class="weather-wrap">
+                        <label for="clear" class="wradio-label" title="Clear Weather">
+                            <input type="radio" id="clear" name="weather" value="Clear" checked>
+                            <img class="weather-icon" id="clear-weather" src="/static/images/weather-icons/sunny.png" alt="sunny weather icon">
+                        </label>
+                    </div>
+					<div class="weather-wrap">
+                        <label for="cloudy" class="wradio-label" title="Cloudy Weather">
+                            <input type="radio" id="cloudy" name="weather" value="Cloudy">
+                            <img class="weather-icon" id="cloudy-weather" src="/static/images/weather-icons/cloudy.png" alt="cloudy weather icon"/>
+                        </label>
+                    </div>
+					<div class="weather-wrap">
+                        <label for="dusk" class="wradio-label" title="Dusk/Dawn">
+                            <input type="radio" id="dusk" name="weather" value="Dusk">
+                            <img class="weather-icon" id="dusk-weather" src="/static/images/weather-icons/dusk.png" alt="dusk dawn weather icon"/>
+                        </label>
+                    </div>
+					<div class="weather-wrap">
+                        <label for="foggy" class="wradio-label" title="Foggy">
+                            <input type="radio" id="foggy" name="weather" value="Foggy">
+                            <img class="weather-icon" id="foggy-weather" src="/static/images/weather-icons/foggy.png" alt="foggy weather icon"/>
+                        </label>
+                    </div>
+					<div class="weather-wrap">
+                        <label for="night" class="wradio-label" title="Night">
+                            <input type="radio" id="night" name="weather" value="Night">
+                            <img class="weather-icon" id="night-weather" src="/static/images/weather-icons/night.png" alt="night weather icon"/>
+                        </label>
+                    </div>
+					<div class="weather-wrap">
+                        <label for="rainy" class="wradio-label" title="Rainy Weather">
+                            <input type="radio" id="rainy" name="weather" value="Rain">
+                            <img class="weather-icon" id="rainy-weather" src="/static/images/weather-icons/rainy.png" alt="rain weather icon"/>
+                        </label>
+                    </div>
+					<div class="weather-wrap">
+                        <label for="snow" class="wradio-label" title="Snowy Weather">
+                            <input type="radio" id="snow" name="weather" value="Snow">
+                            <img class="weather-icon" id="snowy-weather" src="/static/images/weather-icons/snowy.png" alt="snow weather icon"/>
+                        </label>
+                    </div>
+				</div>
+			</div>
+			<textarea class="prompt" id="t2i-prompt" placeholder="Please write your prompt here..."></textarea>
+			<div style="display: flex; flex-direction: row; margin: 0; padding: 0; justify-content: space-evenly; height: 30px; margin: 2% 0; width: 90%;"><button class="t2i-generate" id="t2i-generate">Design</button>
+			<button class="i2i-generate" id="i2i-generate">Redesign</button></div>
+        </div>
+        <div class="image-container2">
+            <div class="image-container">
+                <div id="image1" class="output-image-section">
+                    <input type="checkbox" id="checkbox1" name="imageCheckbox1">
+                    <label for="checkbox1"></label>
+                    <img src="/static/images/GENERATE LOGO.png" alt="logo design icon" alt="Output Image 1">
+                </div>
+            
+                <div id="image2" class="output-image-section">
+                    <input type="checkbox" id="checkbox2" name="imageCheckbox2">
+                    <label for="checkbox2"></label>
+                    <img src="/static/images/GENERATE LOGO.png" alt="Output Image 2">
+                </div>
+            
+                <div id="image3" class="output-image-section">
+                    <input type="checkbox" id="checkbox3" name="imageCheckbox3">
+                    <label for="checkbox3"></label>
+                    <img src="/static/images/GENERATE LOGO.png" alt="Output Image 3">
+                </div>
+            
+                <div id="image4" class="output-image-section">
+                    <input type="checkbox" id="checkbox4" name="imageCheckbox4">
+                    <label for="checkbox4"></label>
+                    <img src="/static/images/GENERATE LOGO.png" alt="Output Image 4">
+                </div>
+            </div>
+            <button class="add-button">Add to Canvas</button>
+        </div>
+		</div>
+		<div class="canvas-area">
+            <div  style="display:flex; justify-content: flex-end; width: 100%; margin: 0; padding: 0; position: relative;"><p id="canvas-size-text" style="color: whitesmoke; font-family: 'oswald'; margin-right: 15%; padding: 0; font-style: normal; font-size: 0.7rem;" hidden>768x768</p></div>
+            <div style="display: flex; position: relative;">
+            <div style="position: relative; height: 768px; width: 768px; justify-content: center; align-items: center; align-content: center; display: flex;"><canvas id="myCanvas" width="768" height="768" style="position: relative;"></canvas></div>
+            <div style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; align-content: space-evenly; margin-left: 10px;">
+                <div class="aa">
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"><button title="Background Cleaner" class="edit-button2" id="bg-cleaner"><img src="/static/images/icons/bgc.png" alt="background icon" height="100%" width="100%" style="opacity: 0.5;"/></button>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"><button title="Center Image" class="edit-button2" id="center"><img src="/static/images/icons/center.png" alt="center transport icon " width="100%" height="100%" style="opacity: 0.5;"/></button>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"><button title="Pan (Ctrl+Mouse1)" class="edit-button2" id="pan"><img src="/static/images/icons/pan.png" alt="pan icon" width="100%" height="100%" style="opacity: 0.5;"/></button>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="edit-buttons" style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; width: 80%; height: 5%; margin: 0 5% 0 0; padding: 0; border-radius: 16px; position: relative;">
+                <textarea class="prompt-mask" id="mask-prompt" placeholder="Change something on image..."></textarea>
+                <div style="display: flex; flex-direction: row; width: 15%; justify-content: space-between; align-items: center;">
+                    <button class="ip-generate" id="ip-generate">Modify</button>
+                    <button class="ip-generate" id="rm-generate">Remove</button>
+                </div>
+                <button class="bn3637 bn38" id="auto-mask-button">Auto Mask</button>
+                <textarea class="object-prompt" id="object-prompt" placeholder="Choose object"></textarea>
+                <button title="Brush" class="bn3637 bn38" id="brush">Brush</button>
+                <div id="slider-area" style="display: none; flex-direction: column; color: white; width: 15%;">
+                    <div style="display: flex; align-items: center; justify-content: center; align-content: center;"><input class="slider" type="range" id="valueSlider" name="valueSlider" min="10" max="200" value="10" step="10">
+                    <p style="width: 15%;"><span style="color: #E48457;" id="selectedValue">10</span></p></div>
+                </div>
+                <button title="Erase Mask" class="bn3637 bn38" id="eraser">Clear Mask</button>
+                <label class="bn39 bn40 invertMask">
+                    <span class="checkmark"></span>
+                    <input type="checkbox" id="invertCheckbox">
+                    Invert
+                </label>
+            </div>
+		</div>
+		<div class="right-side">
+			<div class="layers" id="layers">
+				<div class="layer-header">
+					<button title="Upload" id="upload" style="border: none; height: 20px; width: 20px; margin: 0; padding: 0;"><img src="/static/images/icons/upload.png" alt="upload icon symbol" width="100%" height="100%" style="opacity: 0.5;"></button>
+					<i style="font-family: 'oswald'; font-size: 20px; font-style: normal;">Layers</i>
+					<img style="border: none; opacity: 0;" src="/static/images/icons/layers.png" alt="layers icon symbol" width="20" height="20"/>
+				</div>
+				<div class="images ui-sortable" id="images">
+                </div>
+			</div>
+        </div>
+        <div class="popup-container" id="popupContainer">
+            <div class="arrow-left" id="popup-left"></div>
+            <img class="popup-image" id="popupImage" src="">
+            <div class="arrow-right" id="popup-right"></div>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById("valueSlider");
+        const output = document.getElementById("selectedValue");
+
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        };
+
+        var profileLink = document.getElementById('profile');
+        var logoutMenu = document.createElement('div');
+        logoutMenu.id = 'logout-menu';
+        logoutMenu.innerHTML = `
+            <ul>
+                <li><p>{{user.username}}</p></li>
+                <li><a id="project-link" href="/project">Projects</a></li>
+                <li><a id="logout-link">Logout</a></li>
+            </ul>
+        `;
+        
+        profileLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (logoutMenu.style.display === 'none' || logoutMenu.style.display === '') {
+                logoutMenu.style.display = 'flex';
+            } else {
+                logoutMenu.style.display = 'none';
+            }
+        });
+
+        document.body.appendChild(logoutMenu);
+
+        var logoutLink = document.getElementById('logout-link');
+
+        logoutLink.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            fetch("/logout/", {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                credentials: 'same-origin'
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = '/';
+                } else {
+                    console.error("Couldn't log out.");
+                }
+            }).catch(error => {
+                console.error('An error occured:', error);
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!logoutMenu.contains(event.target) && !profileLink.contains(event.target)) {
+                logoutMenu.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html>

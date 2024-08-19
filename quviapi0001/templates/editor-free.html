@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
+    <title>Qfree Editor</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://unpkg.com/fabric@5.3.0/dist/fabric.min.js"></script>
+    <script type="text/javascript" src="/static/js/editor-free-v000012.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/style-free-v000012.css">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <link rel="canonical" href="https://quvi.ai" />
+</head>
+
+<body>
+    <header>
+        <a style="justify-content: center; align-content: center; align-items: center; height: 80%; width: 6%; margin-left: 3%; padding: 0; margin-right: 5%;" href="/project"><img src="/static/images/free-logo.png" alt="q free Logo" width="100%" height="90%"></a>
+        <div class="scale-area">
+            <label for="s" class="scale-button">
+                <input type="radio" id="s" name="scale" value="s">
+                <span class="radio-text2"><span>1:1</span>
+                <div style="height: 16px; width: 16px; border: thin solid white; background-color: #1c1c1c;"></div></span>
+            </label>
+            <label for="h" class="scale-button">
+                <input type="radio" id="h" name="scale" value="h">
+                <span class="radio-text2"><span>4:3</span>
+                <div style="height: 12px; width: 16px; border: thin solid white; background-color: #1c1c1c;"></div></span>
+            </label>
+            <label for="v" class="scale-button">
+                <input type="radio" id="v" name="scale" value="v">
+                <span class="radio-text2"><span>3:4</span>
+                <div style="height: 16px; width: 12px; border: thin solid white; background-color: #1c1c1c;"></div></span>
+            </label>
+            <label for="h2" class="scale-button">
+                <input type="radio" id="h2" name="scale" value="h2">
+                <span class="radio-text2"><span>16:9</span>
+                <div style="height: 9px; width: 16px; border: thin solid white; background-color: #1c1c1c;"></div></span>
+            </label>
+            <label for="v2" class="scale-button">
+                <input type="radio" id="v2" name="scale" value="v2">
+                <span class="radio-text2"><span>9:16</span>
+                <div style="height: 16px; width: 9px; border: thin solid white; background-color: #1c1c1c;"></div></span>
+            </label>
+        </div>
+        <div style="display: flex; flex-direction: row; width: 17%; height: 100%; align-items: center; justify-content: space-evenly;">
+        <button class="download" id="download">Export</button>
+        <div class="user-profile">
+            <a href="{% url 'pricing' %}" style="display: flex; justify-content: flex-start; align-items: center; text-decoration: none; text-align: center; width: 80%;">
+                    <img src="/static/images/QUVI COIN.png" alt="Coin" width="30%" height="50%" /> 
+                    <i id="user-credit" style="color: white; font-size: 1.2rem; font-family: 'oswald'; font-style: normal; height: 100%; width: 20%; font-weight: 700;">{{user.credit}}</i></a>
+            <a id="profile" href="#" style="justify-content: center; align-content: center; align-items: center; height: 100%; width: 25%; padding: 0; text-decoration: none;">
+              <div style="color: white; display: flex; font-family: 'LTSuperior-r'; font-size: x-large; background-color: rgb(66, 20, 20); height: 90%; width: 100%; border-radius: 50%; text-align: center; justify-content: center; align-items: center; align-content: center; border: thin solid black; margin: 0; padding: 0;">
+                <p>{{user.username|first}}</p>
+              </div>
+            </a>
+        </div>
+        </div>
+    </header>
+    <div class="edit-area">
+		<div class="generate-area">
+        <div class="t2i-area">
+            <div id="style-decider" class="style-decider" style="display: flex; justify-content: center; height: 60%; max-height: 300px; width: 90%; margin: 2%;">
+                <div class="styles">
+                    <div class="style-wrap">
+                        <label for="none" class="radio-label">
+                            <input type="radio" id="none" name="style" value="" checked>
+                            <img src="/static/images/free-styles/empty.png" alt="free style"/>
+                        </label>
+                        <span class="style-text">None</span>
+                    </div>
+                    <div class="style-wrap">
+                        <label for="anime" class="radio-label">
+                            <input type="radio" id="anime" name="style" value="sai-anime">
+                            <img src="/static/images/free-styles/anime.png" alt="animation anime animated"/>
+                        </label>
+                        <span class="style-text">Anime</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="photographic" class="radio-label">
+                            <input type="radio" id="photographic" name="style" value="sai-photographic">
+                            <img src="/static/images/free-styles/photographic.png" alt="photo photographic shot"/>
+                        </label>
+                        <span class="style-text">Photographic</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="pixelArt" class="radio-label">
+                            <input type="radio" id="pixelArt" name="style" value="sai-pixel art">
+                            <img src="/static/images/free-styles/pixel-art.png" alt="pixelated pixel art pixels"/>
+                        </label>
+                        <span class="style-text">Pixel Art</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="silhouette" class="radio-label">
+                            <input type="radio" id="silhouette" name="style" value="photo-silhouette">
+                            <img src="/static/images/free-styles/silhouette.png" alt="silhouette shadow"/>
+                        </label>
+                        <span class="style-text">Silhouette</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="longExposure" class="radio-label">
+                            <input type="radio" id="longExposure" name="style" value="photo-long exposure">
+                            <img src="/static/images/free-styles/long-exposure.png" alt="long exposure"/>
+                        </label>
+                        <span class="style-text">Long Exposure</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="analogFilm" class="radio-label">
+                            <input type="radio" id="analogFilm" name="style" value="sai-analog film">
+                            <img src="/static/images/free-styles/analog-film.png" alt="analog film, old photo"/>
+                        </label>
+                        <span class="style-text">Analog Film</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="isometric" class="radio-label">
+                            <input type="radio" id="isometric" name="style" value="sai-isometric">
+                            <img src="/static/images/free-styles/isometric.png" alt="isometric view, angle"/>
+                        </label>
+                        <span class="style-text">Isometric</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="lowpoly" class="radio-label">
+                            <input type="radio" id="lowpoly" name="style" value="sai-lowpoly">
+                            <img src="/static/images/free-styles/lowpoly.png" alt="lowpoly"/>
+                        </label>
+                        <span class="style-text">Lowpoly</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="cubist" class="radio-label">
+                            <input type="radio" id="cubist" name="style" value="artstyle-cubist">
+                            <img src="/static/images/free-styles/cubist.png" alt="cubist"/>
+                        </label>
+                        <span class="style-text">Cubist</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="origami" class="radio-label">
+                            <input type="radio" id="origami" name="style" value="sai-origami">
+                            <img src="/static/images/free-styles/origami.png" alt="origami paperwork"/>
+                        </label>
+                        <span class="style-text">Origami</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="lineArt" class="radio-label">
+                            <input type="radio" id="lineArt" name="style" value="sai-line art">
+                            <img src="/static/images/free-styles/line-art.png" alt="line art, draw"/>
+                        </label>
+                        <span class="style-text">Line Art</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="craftClay" class="radio-label">
+                            <input type="radio" id="craftClay" name="style" value="sai-craft clay">
+                            <img src="/static/images/free-styles/craft-clay.png" alt="clay craft"/>
+                        </label>
+                        <span class="style-text">Craft Clay</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="cinematic" class="radio-label">
+                            <input type="radio" id="cinematic" name="style" value="sai-cinematic">
+                            <img src="/static/images/free-styles/cinematic.png" alt="cinematic"/>
+                        </label>
+                        <span class="style-text">Cinematic</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Cybernetic" class="radio-label">
+                            <input type="radio" id="Cybernetic" name="style" value="futuristic-cybernetic">
+                            <img src="/static/images/free-styles/cybernetic.png" alt="cybernetic futuristic robots"/>
+                        </label>
+                        <span class="style-text">Cybernetic</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="texture" class="radio-label">
+                            <input type="radio" id="texture" name="style" value="sai-texture">
+                            <img src="/static/images/free-styles/texture.png" alt="texture"/>
+                        </label>
+                        <span class="style-text">Texture</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="sci-fi" class="radio-label">
+                            <input type="radio" id="sci-fi" name="style" value="futuristic-sci-fi">
+                            <img src="/static/images/free-styles/sci-fi.png" alt="science fiction sci-fi"/>
+                        </label>
+                        <span class="style-text">Sci-fi</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="fashion" class="radio-label">
+                            <input type="radio" id="fashion" name="style" value="ads-fashion editorial">
+                            <img src="/static/images/free-styles/fashion.png" alt="fashion"/>
+                        </label>
+                        <span class="style-text">Fashion</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="popArt" class="radio-label">
+                            <input type="radio" id="popArt" name="style" value="artstyle-pop art">
+                            <img src="/static/images/free-styles/pop-art.png" alt="pop art artstyle"/>
+                        </label>
+                        <span class="style-text">Pop Art</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="cyberpunk" class="radio-label">
+                            <input type="radio" id="cyberpunk" name="style" value="futuristic-retro cyberpunk">
+                            <img src="/static/images/free-styles/cyberpunk.png" alt="cyberpunk futuristic neon"/>
+                        </label>
+                        <span class="style-text">Cyberpunk</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="fantasyArt" class="radio-label">
+                            <input type="radio" id="fantasyArt" name="style" value="sai-fantasy art">
+                            <img src="/static/images/free-styles/fantasy-art.png" alt="fantasy art"/>
+                        </label>
+                        <span class="style-text">Fantasy Art</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="Manga" class="radio-label">
+                            <input type="radio" id="Manga" name="style" value="misc-manga">
+                            <img src="/static/images/free-styles/manga.png" alt="manga style"/>
+                        </label>
+                        <span class="style-text">Manga</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="monochrome" class="radio-label">
+                            <input type="radio" id="monochrome" name="style" value="misc-monochrome">
+                            <img src="/static/images/free-styles/monochrome.png" alt="monochrome"/>
+                        </label>
+                        <span class="style-text">Monochrome</span>
+                    </div>
+					<div class="style-wrap">
+                        <label for="gothic" class="radio-label">
+                            <input type="radio" id="gothic" name="style" value="misc-gothic">
+                            <img src="/static/images/free-styles/gothic.png" alt="gothic dark darkness"/>
+                        </label>
+                        <span class="style-text">Gothic</span>
+                    </div>	
+                </div>
+            </div>
+			<textarea class="prompt" id="t2i-prompt" placeholder="Please write your prompt here..."></textarea>
+			<textarea class="negative-prompt" id="t2i-negative-prompt" placeholder="Please write your negative prompt here..."></textarea>
+			<div style="display: flex; flex-direction: row; margin: 0; padding: 0; justify-content: space-evenly; height: 30px; margin: 2% 0; width: 90%;"><button class="t2i-generate" id="t2i-generate">Create</button>
+			<button class="i2i-generate" id="i2i-generate">Recreate</button></div>
+        </div>
+        <div class="image-container2">
+            <div class="image-container">
+                <div id="image1" class="output-image-section">
+                    <input type="checkbox" id="checkbox1" name="imageCheckbox1">
+                    <label for="checkbox1"></label>
+                    <img src="/static/images/GENERATE LOGO FREE.png" alt="logo design icon" alt="Output Image 1">
+                </div>
+            
+                <div id="image2" class="output-image-section">
+                    <input type="checkbox" id="checkbox2" name="imageCheckbox2">
+                    <label for="checkbox2"></label>
+                    <img src="/static/images/GENERATE LOGO FREE.png" alt="Output Image 2">
+                </div>
+            
+                <div id="image3" class="output-image-section">
+                    <input type="checkbox" id="checkbox3" name="imageCheckbox3">
+                    <label for="checkbox3"></label>
+                    <img src="/static/images/GENERATE LOGO FREE.png" alt="Output Image 3">
+                </div>
+            
+                <div id="image4" class="output-image-section">
+                    <input type="checkbox" id="checkbox4" name="imageCheckbox4">
+                    <label for="checkbox4"></label>
+                    <img src="/static/images/GENERATE LOGO FREE.png" alt="Output Image 4">
+                </div>
+            </div>
+            <button class="add-button">Add to Canvas</button>
+        </div>
+		</div>
+		<div class="canvas-area">
+            <div  style="display:flex; justify-content: flex-end; width: 100%; margin: 0; padding: 0; position: relative;"><p id="canvas-size-text" style="color: whitesmoke; font-family: 'oswald'; margin-right: 15%; padding: 0; font-style: normal; font-size: 0.7rem;" hidden>768x768</p></div>
+            <div style="display: flex; position: relative;">
+            <div style="position: relative; height: 768px; width: 768px; justify-content: center; align-items: center; align-content: center; display: flex;"><canvas id="myCanvas" width="768" height="768" style="position: relative;"></canvas></div>
+            <div style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; align-content: space-evenly; margin-left: 10px;">
+                <div class="aa">
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"><button title="Background Cleaner" class="edit-button2" id="bg-cleaner"><img src="/static/images/icons/bgc.png" alt="background icon" height="100%" width="100%" style="opacity: 0.5;"/></button>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"><button title="Center Image" class="edit-button2" id="center"><img src="/static/images/icons/center.png" alt="center transport icon " width="100%" height="100%" style="opacity: 0.5;"/></button>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"><button title="Pan (Ctrl+Mouse1)" class="edit-button2" id="pan"><img src="/static/images/icons/pan.png" alt="pan icon" width="100%" height="100%" style="opacity: 0.5;"/></button>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="edit-buttons" style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; width: 80%; height: 5%; margin: 0 5% 0 0; padding: 0; border-radius: 16px; position: relative;">
+                <textarea class="prompt-mask" id="mask-prompt" placeholder="Change something on image..."></textarea>
+                <div style="display: flex; flex-direction: row; width: 15%; justify-content: space-between; align-items: center;">
+                    <button class="ip-generate" id="ip-generate">Modify</button>
+                    <button class="ip-generate" id="rm-generate">Remove</button>
+                </div>
+                <button class="bn3637 bn38" id="auto-mask-button">Auto Mask</button>
+                <textarea class="object-prompt" id="object-prompt" placeholder="Choose object"></textarea>
+                <button title="Brush" class="bn3637 bn38" id="brush">Brush</button>
+                <div id="slider-area" style="display: none; flex-direction: column; color: white; width: 15%;">
+                    <div style="display: flex; align-items: center; justify-content: center; align-content: center;"><input class="slider" type="range" id="valueSlider" name="valueSlider" min="10" max="200" value="10" step="10">
+                    <p style="width: 15%;"><span style="color: hsl(192, 43%, 40%);" id="selectedValue">10</span></p></div>
+                </div>
+                <button title="Erase Mask" class="bn3637 bn38" id="eraser">Clear Mask</button>
+                <label class="bn39 bn40 invertMask">
+                    <span class="checkmark"></span>
+                    <input type="checkbox" id="invertCheckbox">
+                    Invert
+                </label>
+            </div>
+		</div>
+		<div class="right-side">
+			<div class="layers" id="layers">
+				<div class="layer-header">
+					<button title="Upload" id="upload" style="border: none; height: 20px; width: 20px; margin: 0; padding: 0;"><img src="/static/images/icons/upload.png" alt="upload icon symbol" width="100%" height="100%" style="opacity: 0.5;"></button>
+					<i style="font-family: 'oswald'; font-size: 20px; font-style: normal;">Layers</i>
+					<img style="border: none; opacity: 0;" src="/static/images/icons/layers.png" alt="layers icon symbol" width="20" height="20"/>
+				</div>
+				<div class="images ui-sortable" id="images">
+                </div>
+			</div>
+        </div>
+        <div class="popup-container" id="popupContainer">
+            <div class="arrow-left" id="popup-left"></div>
+            <img class="popup-image" id="popupImage" src="">
+            <div class="arrow-right" id="popup-right"></div>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById("valueSlider");
+        const output = document.getElementById("selectedValue");
+
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        };
+
+        var profileLink = document.getElementById('profile');
+        var logoutMenu = document.createElement('div');
+        logoutMenu.id = 'logout-menu';
+        logoutMenu.innerHTML = `
+            <ul>
+                <li><p>{{user.username}}</p></li>
+                <li><a id="project-link" href="/project">Projects</a></li>
+                <li><a id="logout-link">Logout</a></li>
+            </ul>
+        `;
+        
+        profileLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (logoutMenu.style.display === 'none' || logoutMenu.style.display === '') {
+                logoutMenu.style.display = 'flex';
+            } else {
+                logoutMenu.style.display = 'none';
+            }
+        });
+
+        document.body.appendChild(logoutMenu);
+
+        var logoutLink = document.getElementById('logout-link');
+
+        logoutLink.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            fetch("/logout/", {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                credentials: 'same-origin'
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = '/';
+                } else {
+                    console.error("Couldn't log out.");
+                }
+            }).catch(error => {
+                console.error('An error occured:', error);
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!logoutMenu.contains(event.target) && !profileLink.contains(event.target)) {
+                logoutMenu.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html>

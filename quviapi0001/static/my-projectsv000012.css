@@ -1,0 +1,649 @@
+@font-face {
+	font-family: 'oswald';
+	src: url("/static/font/Oswald-ExtraLight.ttf");
+}
+
+:root {
+    --card-width: 300px;
+    --card-border-radius: 16px;
+    --row-increment: 10px;
+    --card-small: 45;
+    --card-medium: 30;
+    --card-large: 30;
+}
+
+body {
+    display: flex;
+    flex-direction:column;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color:  black;   
+}
+
+.header {
+position: relative;
+display: flex;
+align-items: center;
+width: 100%;
+height: 7vh;
+border-bottom: 1px solid #4d4c4f;
+justify-content: space-between;
+background-color: black;
+margin: 0;
+padding: 0;
+}
+  
+.logo {
+position: relative;
+height: 90%;
+width: 12%;
+object-fit: contain;
+cursor: pointer;
+margin-left: 1%;
+padding: 0;
+}
+
+.logo img {
+height: 100%;
+width: 100%;
+margin: 0;
+padding: 0;
+}
+
+.user-profile {
+	width: 7%;
+	justify-content: space-evenly;
+	align-content: center;
+	height: 60%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: relative;
+	border: 0px;
+	margin-right: 5%;
+	border-radius: 2rem;
+	background: transparent;
+}
+
+#logout-menu {
+    display: none;
+    position: absolute;
+    top: 10vh;
+    right: 3%;
+    background-color: #1c1c1c;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+	height: 50px;
+	width: 4%;
+    padding: 0;
+	margin: 0;
+	text-align: center;
+	justify-content: space-evenly;
+	align-content: space-evenly;
+	box-sizing: border-box;
+	margin-top: -1%;
+}
+
+#logout-menu ul {
+    list-style-type: none;
+    padding: 0;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+	text-align: center;
+	justify-content: space-evenly;
+	align-content: space-evenly;
+	align-items: center;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+#logout-menu ul li {
+    list-style-type: none;
+    padding: 0;
+	cursor: pointer;
+	text-align: center;
+	justify-content: space-evenly;
+	align-content: space-evenly;
+	align-items: center;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#logout-menu ul li a {
+    text-decoration: none;
+    color: white;
+	cursor: pointer;
+	text-align: center;
+	justify-content: space-evenly;
+	align-content: space-evenly;
+	align-items: center;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.fa-solid {
+    padding: 2%;
+  
+}
+
+.card-content {
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 100%;  
+    padding: 5px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+}
+
+.card-content i {
+    color: rgb(201, 201, 201);
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+}
+.card-content i.copied {
+    color: rgb(196, 111, 0);
+}
+
+.style_img{
+    font-weight:400 ;
+    font-family: 'oswald';
+    word-spacing: 0px;
+    letter-spacing: 0.4px; 
+}
+
+.page-1{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 30vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0)30%, rgb(41, 41, 41) 100%);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: space-evenly;
+    position: relative;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.container{
+    width: 90%;
+    height: 30vh;
+    align-items: center;
+    position: relative;
+    display: flex;  
+    flex-direction: row;  
+    align-items: center;
+    justify-content:space-between;
+    background-color:transparent;
+}
+
+.projectcontainer{
+    width: 90%;
+    height: 30vh;
+    align-items: center;
+    position: relative;
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    background-color:transparent;
+}
+
+.other-projects{
+    width: 11%;    
+    background-color:transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn1 {
+    background-color: transparent;
+    width: 10vw;
+    height: 4vh;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 7px;
+    border: 0.1px solid rgb(40, 40, 40);
+    outline: 0.1px solid rgba(140, 40, 153, 0.8);
+    margin: 0;
+    padding: 0; 
+}
+  
+.btn1.active::before {
+    content: "";
+    background: linear-gradient(45deg,
+    #6b2075, #2d2da5, rgb(19, 90, 107), #6b2d74,
+    #1a1a7a, #57165f); 
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 1200%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 50s linear infinite; 
+    transition: opacity .1s ease-in-out;
+    border-radius:  7px;
+    opacity: 0.9;
+    margin: 0;
+    padding: 0;
+}
+
+.btn2 {
+    background-color: transparent;
+    width: 10vw;
+    height: 4vh;  
+    outline: none; 
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 7px;
+    border: 0.1px solid rgb(40, 40, 40);
+    outline: 0.1px solid rgba(209, 113, 54, 0.6);
+    margin: 0;
+    padding: 0;  
+}
+
+.btn2.active::before {
+    content: "";
+    background: linear-gradient(45deg,
+    #754112,#363535, #743c19,#383737, 
+    #703e1e,#723704); 
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 1200%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 50s linear infinite; 
+    transition: opacity .1s ease-in-out;
+    border-radius:  7px;
+    opacity: 0.9;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 500% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.btn3{
+    background-color: transparent;
+    border: 0.1px solid rgb(65, 65, 65);
+    width: 10vw;
+    height: 4vh;  
+    outline: none; 
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 7px;
+}
+
+.arch-projects-1 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-content: center;  
+    align-items: center;   
+    background-color:transparent;  
+    cursor: pointer;
+}
+
+.arch-projects-2 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-content: center;  
+    align-items: center;  
+    background-color:transparent;
+    cursor: pointer;
+}
+
+.arch-projects-3 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-content: center;  
+    align-items: center;  
+    background-color:transparent;
+    cursor: pointer;
+}
+
+.arch-projects-4 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-content: center;  
+    align-items: center;  
+    background-color:transparent;
+    cursor: pointer;
+}
+
+.arch-projects-5 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-content: center;  
+    align-items: center;   
+    background-color:transparent;
+    cursor: pointer;
+}
+
+.arch-projects-6 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-content: center;  
+    align-items: center;
+    background-color:transparent;
+    cursor: pointer;
+}
+
+.arch-projects-1 img {
+    width: 48%;
+    height: 90%; 
+}
+
+.arch-projects-2 img {
+    width: 48%;
+    height: 90%;     
+}
+
+.arch-projects-3 img {
+    width: 48%;
+    height: 90%;   
+}
+
+.arch-projects-4 img {
+    width: 48%;
+    height: 90%;   
+}
+
+.arch-projects-5 img {
+    width: 48%;
+    height: 90%;      
+}
+
+.arch-projects-6 img {
+    width: 48%;
+    height: 90%;       
+}
+
+
+
+input[type="radio"] {
+	display:none;
+}
+
+.container-1{
+    margin-right: 8%;
+    width: 75%;  
+    height: 25vh;  
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color:transparent;
+    cursor:pointer ;
+}
+
+.butone-1{  
+    height: 86%;
+}
+
+.container-1 .archproje-1 h2{
+    font-size: 1.5rem;     
+    color: transparent; 
+    background: -webkit-linear-gradient(to right, rgb(152, 73, 0), rgb(211, 116, 58)); 
+    background: linear-gradient(to right, rgb(152, 73, 0), rgb(211, 116, 58)); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+}
+
+.archproje-1{   
+    width: 18%;
+    height: 100%;
+    position: relative;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(211, 116, 58, 0.2) 0%, rgb(211, 116, 58) 100%);
+    box-shadow: 0 0 10px  rgba(211, 116, 58, 1); 
+    overflow: hidden;
+}
+
+.archproje-1 img{
+    width: 90%;
+    height: 90%;
+}
+
+.container-2{
+    margin-right: 8%;
+    width: 75%;  
+    height: 25vh;  
+    align-items: center;
+    position: relative;
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color:transparent;
+    cursor:pointer ;
+}
+
+.container-2 .archproje-2 h2{
+    font-size: 1.5rem;     
+    color: transparent; 
+    background: -webkit-linear-gradient(to right, rgb(90, 45, 140), rgb(92, 172, 180)); 
+    background: linear-gradient(to right, rgb(90, 45, 140), rgb(92, 172, 180)); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+}
+
+.archproje-2{
+    width: 18%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(90, 45, 140, 0.2) 0%,  rgba(92, 172, 180 ) 100%);
+    overflow: hidden; 
+    box-shadow: 0 0 10px rgba(9, 172, 180,1); 
+    position: relative;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.archproje-2 img{
+    width: 90%;
+    height: 90%;
+}
+
+
+.page-1 h2{
+    margin: 1%;
+    color: white;
+    font-family: 'oswald';
+    word-spacing: 0px;
+    letter-spacing: 0.4px;
+ 
+}
+
+.pin-container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    background: linear-gradient(to top, rgba(0, 0, 0, 0)30%, rgb(41, 41, 41) 100%);
+    display: none;
+    grid-template-columns: repeat(auto-fill, var(--card-width));
+    grid-auto-rows: var(--row-increment);
+    justify-content: space-around;  
+    overflow: hidden; 
+}
+
+.pin-container-2{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    background: linear-gradient(to top, rgba(0, 0, 0, 0)30%, rgb(41, 41, 41) 100%);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card-width));
+    grid-auto-rows: var(--row-increment);
+    justify-content: space-around;  
+    overflow: hidden; 
+}
+
+.title{
+    width: 100%;
+    height: 3.5vh;
+    border-top: 0.5px solid rgb(59, 59, 59);
+    border-bottom: 0.5px solid rgb(59, 59, 59);
+    margin: 1px 0px;
+    background: linear-gradient(to top, rgba(59, 59, 59, 0)0%, rgb(41, 41, 41) 0%);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+}
+
+.title h2{
+    color: transparent;
+    font-size: larger;
+    margin-left: 0.6%;
+}
+
+.card{   
+    padding: 0px;
+    margin: 5px 0px;
+    background-color: transparent;
+    border-radius: var(--card-border-radius);
+
+}
+
+.card:hover {
+    transform: scale(1.05); 
+}
+
+.card-small {
+    grid-row-end: span var(--card-small)
+}
+
+.card-medium {
+    grid-row-end: span var(--card-medium)
+}
+.card-large {
+    grid-row-end: span var(--card-large)
+}
+
+
+
+
+.card:hover .card-content {
+    opacity: 1;
+}
+
+.card-content h2, .card-content p {
+    color: rgba(255, 255, 255,0.7);
+    margin: 0;
+    font-size:small;
+    font-family: 'oswald';
+    word-spacing: 0px;
+    letter-spacing: 0.4px;
+}
+
+
+
+.card-content h2 {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-family: 'oswald';
+    word-spacing: 0px;
+    letter-spacing: 0.4px;
+}
+
+#logout-menu ul li p {
+    text-decoration: none;
+    color: white;
+	cursor: pointer;
+	text-align: center;
+	justify-content: space-evenly;
+	align-content: space-evenly;
+	align-items: center;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-size: small;
+}
